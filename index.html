@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cadastro - Novo Associado</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/materialize-stepper@3.1.0/dist/css/mstepper.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="apple-icon-57x57.png"/>
+  </head>
+  <body>
+
+    <div id="loader" class="loader-wrapper is-active">
+        <div id="loader2" class="loader is-loading"></div>
+    </div>
+
+
+    <section class="hero is-small is-primary">
+        <div class="hero-body has-text-centered">
+            <img class="is-square" src="https://drive.google.com/uc?id=1cmetzIs0_iyKyzkjg9vH3KzKjUdWTzrD" width="250px">
+        <div class="content">
+            <p class="title">
+            Formulário de Cadastro
+          </p>
+        </div>
+        <div class="content has-text-justified">  
+          <p class="subtitle">
+              Seja bem vindo(a) ao time de profissionais da Health & Care! Preencha
+              abaixo o formulário para se tornar um associado(a) e deixe que cuidemos do restante, para que assim, você se concentre
+              unicamente na bela missão de cuidar e salvar vidas.
+          </p>
+        </div>
+        </div>
+      </section>
+
+  <section class="section">
+
+    <ul class="stepper">
+  
+        <li class="step active">
+          <div class="step-title waves-effect">Dados Pessoais</div>
+           <div class="step-content">
+           
+            <div class="box">
+                <div class="block">
+                    
+                    <div class="columns">
+                        
+                        <div class="column is-6">
+                            <div class="label">Nome Completo<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-account zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+                            
+                            <div class="label">Nascimento<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="date" id="nascimento" name="nascimento" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-calendar zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+
+                            <div class="label">RG<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="text" id="rg" name="rg" onkeydown="javascript: fMascRG( this, mRG );" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-account zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+                            
+                            <div class="label">Orgão emissor<span class="required"></span></div>
+                            <div class="control">
+                                <div class="select is-rounded">
+                                    <select multiple="multiple" id="orgao" name="orgao" style="width:200px ;" required>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="label">UF<span class="required"></span></div>
+                            <div class="control">
+                                <div class="select is-rounded">
+                                    <select id="orgao_uf" style="width:200px ;" required>
+                                        <option disabled selected></option>
+                                        <option>AC</option>
+                                        <option>AL</option>
+                                        <option>AP</option>
+                                        <option>AM</option>
+                                        <option>BA</option>
+                                        <option>CE</option>
+                                        <option>DF</option>
+                                        <option>ES</option>
+                                        <option>GO</option>
+                                        <option>MA</option>
+                                        <option>MT</option>
+                                        <option>MS</option>
+                                        <option>MG</option>
+                                        <option>PA</option>
+                                        <option>PB</option>
+                                        <option>PR</option>
+                                        <option>PE</option>
+                                        <option>PI</option>
+                                        <option>RJ</option>
+                                        <option>RN</option>
+                                        <option>RS</option>
+                                        <option>RO</option>
+                                        <option>RR</option>
+                                        <option>SC</option>
+                                        <option>SP</option>
+                                        <option>SE</option>
+                                        <option>TO</option>
+                                    </select>
+                                    </div>
+                                    </div>
+                            
+                        </div>
+        
+        
+                        <div class="column is-6">
+        
+                            <div class="label">CPF<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" maxlength="14" type="text" id="cpf" name="cpf" placeholder="000.000.000-00" onkeydown="javascript: fMasc( this, mCPF );" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-account zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+        
+                            <div class="label">Celular<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="text" id="celular" name="celular" placeholder="(99)99999-9999" maxlength="14" onkeypress="Mascara(this); return event.charCode >= 48 && event.charCode <= 57" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-account-box-phone zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+                            
+                            <div class="label">Email<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="email" id="email" name="email" placeholder="exemplo@exemplo.com" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-email zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+        
+                            <div class="columns is-mobile">
+        
+                                <div class="column is-half-desktop is-half-mobile is-half-tablet">
+                                  <div class="label">Estado Civil<span class="required"></span></div>
+                                  <div class="control">
+                                  <div class="select is-rounded">
+                                      <select id="estado_civil" required>
+                                        <option disabled selected></option>
+                                        <option>Casado(a)</option>
+                                        <option>Divorciado(a)</option>
+                                        <option>Solteiro(a)</option>
+                                        <option>Viúvo(a)</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                              
+                                  <div class="column is-half-desktop is-half-mobile is-half-tablet">
+                                  <div class="label">Sexo<span class="required"></span></div>
+                                  <div class="control">
+                                  <div class="select is-rounded">
+                                      <select id="sexo" required>
+                                        <option disabled selected></option>
+                                        <option>Feminino</option>
+                                        <option>Masculino</option>
+                                        <option>Não desejo informar</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                            </div>
+        
+                        </div>
+        
+                    </div>
+
+                    <div class="field is-grouped is-grouped-right">
+                        <div class="step-actions right">
+                            <div class="control">
+                                <button class="button is-primary is-rounded next-step">PRÓXIMO</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- BOX DADOS PESSOAIS-->
+           </div> <!-- DIV STEP CONTENT -->
+         </li> <!-- LI STEP CONTENT -->
+     
+        <li class="step">
+     
+           <div class="step-title waves-effect">Dados de Endereço</div>
+         <div class="step-content">
+            
+            <div class="box">
+                <div class="block">
+                    
+                    <div class="columns">
+                        
+                        <div class="column is-6">
+                            <div class="label">CEP<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="text" id="cep" name="cep" maxlength="9" onkeypress="MascaraCep(this); return event.charCode >= 48 && event.charCode <= 57" placeholder="00000-000" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-pin zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+                            
+                            <div class="label">Endereço<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" id="endereco" name="endereco" placeholder="Endereço" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-pin zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+
+                            <div class="label">Complemento</div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="text" id="complemento" name="complemento" placeholder="Complemento">
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-pin zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+                            
+                        </div>
+        
+        
+                        <div class="column is-6">
+
+                            <div class="label">Bairro<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-pin zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+        
+                            <div class="label">Cidade<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-pin zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+                            
+                            <div class="label">Estado<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="text" id="uf" name="uf" placeholder="Estado" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-pin zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+        
+                        </div>
+        
+                    </div>
+
+                    <div class="field is-grouped is-grouped-right">
+                        <div class="step-actions right">
+                            <div class="control">
+                                <button class="button is-rounded previous-step">VOLTAR</button>
+                                <button class="button is-primary is-rounded next-step">PRÓXIMO</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- BOX DADOS ENDERECO-->  
+         </div> <!-- DIV STEP CONTENT -->
+         </li> <!--FIM DO SEGUNDO STEP -->
+         
+      <li class="step">
+     
+        <div class="step-title waves-effect">Dados Bancários</div>
+         <div class="step-content">
+
+            <div class="box">
+                <div class="block">
+                    
+                    <div class="content has-text-justified">
+                    <p class="subtitle is-6">Por gentileza, informe os dados bancários da conta a qual você
+                        deseja receber os valores referentes aos pagamentos:</p>
+                    </div>
+
+                    <div class="columns">
+                        
+                        <div class="column is-6">
+
+                            <div class="label">Banco<span class="required"></span></div>
+                                <div class="control">
+                                    <div class="select is-rounded">
+                                        <select multiple="multiple" id="banco" name="banco" required>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            
+                            <div class="label">Conta Corrente<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="text" id="cc" name="cc" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-card zmdi-hc-lg" ></i>
+                                </span>
+                            </div>
+                            
+                        </div>
+        
+        
+                        <div class="column is-6">
+        
+                            <div class="label">Agência<span class="required"></span></div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" id="agencia" name="agencia" required>
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-card zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+        
+                            <div class="label">Pix (Caso possua)</div>
+                            <div class="control has-icons-left">
+                                <input class="input is-primary is-rounded" type="text" id="pix" name="pix">
+                                <span class="icon is-left">
+                                    <i class="zmdi zmdi-money zmdi-hc-lg"></i>
+                                </span>
+                            </div>
+                            
+                        </div>
+        
+                    </div>
+
+                    <div class="field is-grouped is-grouped-right">
+                        <div class="step-actions right">
+                            <div class="control">
+                                <button class="button is-rounded previous-step">VOLTAR</button>
+                                <button class="button is-primary is-rounded next-step">PRÓXIMO</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- BOX DADOS BANCARIO-->
+
+        </div> <!-- DIV STEP CONTENT -->
+     </li> <!--FIM DO TERCEIRO STEP -->
+     
+     
+     <li class="step">
+     
+       <div class="step-title waves-effect">Dados Profissionais</div>
+        <div class="step-content">
+
+
+            <div class="box">
+                <div class="block">
+                    
+                    <div class="columns">
+                        
+                        <div class="column is-6">
+
+                            <div class="label">CRM<span class="required"></span></div>
+                            <div class="control">
+                                <input class="input is-primary is-rounded" type="text" id="crm" name="crm" required>
+                            </div>
+
+                        </div>
+                        
+                        <div class="column is-6">
+
+                            <div class="label">Especialidade</div>
+                                <div class="control">
+                                    <div class="select is-rounded">
+                                        <select multiple="multiple" id="especialidade" name="especialidade">
+                                            <option>Acupuntura</option>
+                                            <option>Alergia e Imunologia</option>
+                                            <option>Anestesiologista</option>
+                                            <option>Angiologia</option>
+                                            <option>Cardiologia</option>
+                                            <option>Cirurgia Cardiovascular</option>
+                                            <option>Cirurgia de Mão</option>
+                                            <option>Cirurgia de Cabeça e Pescoço</option>
+                                            <option>Cirurgia do Aparelho Digestivo</option>
+                                            <option>Cirurgia Geral</option>
+                                            <option>Cirurgia Oncológica</option>
+                                            <option>Cirurgia Pediátrica</option>
+                                            <option>Cirurgia Plástica</option>
+                                            <option>Cirurgia Torácica</option>
+                                            <option>Cirurgia Vascular</option>
+                                            <option>Clínica Médica</option>
+                                            <option>Coloproctologia</option>
+                                            <option>Dermatologia</option>
+                                            <option>Endocrinologia e Metabologia</option>
+                                            <option>Endoscopia</option>
+                                            <option>Gastroenterologia</option>
+                                            <option>Genética Médica</option>
+                                            <option>Geriatria</option>
+                                            <option>Ginecologia e Obstetrícia</option>
+                                            <option>Hematologia e Hemoterapia</option>
+                                            <option>Homeopatia</option>
+                                            <option>Infectologia</option>
+                                            <option>Mastologia</option>
+                                            <option>Medicina de Emergência</option>
+                                            <option>Medicina de Família e Comunidade</option>
+                                            <option>Medicina do Trabalho</option>
+                                            <option>Medicina de Tráfego</option>
+                                            <option>Medicina Esportiva</option>
+                                            <option>Medicina Física e Reabilitação</option>
+                                            <option>Medicina Intensiva</option>
+                                            <option>Medicina Legal e Perícia Médica</option>
+                                            <option>Medicina Nuclear</option>
+                                            <option>Medicina Preventiva e Social</option>
+                                            <option>Nefrologia</option>
+                                            <option>Neurocirurgia</option>
+                                            <option>Neurologia</option>
+                                            <option>Nutrologia</option>
+                                            <option>Oftalmologia</option>
+                                            <option>Oncologia Clínica</option>
+                                            <option>Ortopedia e Traumatologia</option>
+                                            <option>Otorrinolaringologia</option>
+                                            <option>Patologia</option>
+                                            <option>Patologia Clínica/Medicina Laboratorial</option>
+                                            <option>Pediatria</option>
+                                            <option>Pneumologia</option>
+                                            <option>Psiquiatria</option>
+                                            <option>Radiologia e Diagnóstico por Imagem</option>
+                                            <option>Radioterapia</option>
+                                            <option>Reumatologia</option>
+                                            <option>Urologia</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                               <div class="label">Sub-Especialidade(s)</div>
+                               <div class="control">
+                                  <input class="input is-primary is-rounded" type="text" id="subEspecialidade" name="subEspecialidade" placeholder="Caso possua">
+                                </div>
+
+                                <div class="label">R.Q.E</div>
+                                <div class="control">
+                                    <input class="input is-primary is-rounded" type="text" id="rqe" name="rqe" placeholder="Caso possua">
+                                </div>
+
+                        </div>
+                                
+                    </div>   
+
+                    <div class="field is-grouped is-grouped-right">
+                        <div class="step-actions right">
+                            <div class="control">
+                                <button class="button is-rounded previous-step">VOLTAR</button>
+                                <button class="button is-primary is-rounded next-step">PRÓXIMO</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- BOX DADOS PROFISSIONAIS-->
+           
+           </div> <!-- DIV STEP CONTENT -->
+        </li> <!--FIM DO QUARTO STEP -->
+     
+     <li class="step">
+        <div class="step-title waves-effect">Sua chegada à Health & Care</div>
+         <div class="step-content">
+
+            <div class="box">
+                <div class="block">
+                    
+                    <div class="content has-text-justified">
+                    <p class="subtitle is-6">Antes de finalizarmos o processo de captação dos dados, gostariamos de saber melhor como você
+                        nos conheceu:</p>
+                    </div>
+
+                    <div class="columns">
+                        
+                        <div class="column is-6">
+                            <div class="label">Questionário<span class="required"></span></div>
+                                  <div class="control">
+                                  <div class="select is-rounded">
+                                      <select id="devweb" name="devweb" required>
+                                        <option value="" disabled selected></option>
+                                        <option>Google</option>
+                                        <option>Facebook</option>
+                                        <option>Instagram</option>
+                                        <option>LinkedIn</option>
+                                        <option>Banners</option>
+                                        <option>Indicação de outro médico</option>
+                                        <option>Um dos nossos colaboradores entrou em contato diretamente</option>
+                                      </select>
+                                    </div>
+                                  </div>
+
+                              <div class="content has-text-justified">
+                                  <label class="checkbox">
+                                    <input type="checkbox" id="checkbox_politica_privacidade" name="checkbox_politica_privacidade" required>
+                                    Compreendo e aceito os <b>Termos e Condições</b> da <a href="politica_privacidade_hc.html" target="_blank">Politica de Privacidade</a>
+                                  </label>
+                              </div>
+                            
+                        </div>
+        
+                    </div>
+
+                    <div class="field is-grouped is-grouped-right">
+                        <div class="step-actions right">
+                            <div class="control">
+                                <button class="button is-rounded previous-step">VOLTAR</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!-- BOX DADOS QUESTIONARIO-->
+
+         </div> <!-- DIV STEP CONTENT -->
+        </li> <!--FIM DO ULTIMO STEP -->
+      </ul> <!--FIM DOS STEPS -->
+</section>
+
+<section>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <button class="button is-primary is-rounded is-fullwidth" id="enviar">ENVIAR</button>
+            <br>
+            <br>
+            <p>© 2022 Health&#38Care - Consultoria, pesquisa, atendimento e gestão em saúde</p>
+        </div>
+    </footer>
+</section>
+
+  <script src="https://unpkg.com/materialize-stepper@3.1.0/dist/js/mstepper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+  <script src="script_front.js"></script>
+  </body>
+</html>

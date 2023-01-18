@@ -1,0 +1,56 @@
+.div-wrapper {
+    position: relative;
+    height: 300px;
+    width: 300px;
+}
+
+.div-wrapper img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.required:after {
+    content: " *";
+    color: red;
+}
+
+ul.stepper .step.active::before, ul.stepper .step.done::before {
+    background-color: #00D1B2 !important;
+}
+
+ul.stepper .step.wrong::before {
+    font-size: 24px;
+    background-color: red !important;
+}
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100vw;
+    height:100vh;
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    z-index: 10000;
+    transition: opacity .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}  
+
+.loader {
+      height: 80px;
+      width: 80px;
+}
+    
+.is-active {
+      opacity: 1;
+      z-index: 1;
+}
+
+  
+.is-loading {
+    position: relative;
+}
